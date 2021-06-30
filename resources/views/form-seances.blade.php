@@ -16,23 +16,23 @@
                         {{ csrf_field() }}
 
                         <label for="film-select">Film :</label>
-                        <select name="film" id="film-select">
-                            <option value="Film1">Film1</option>
-                            <option value="Film2">Film2</option>
-                            <option value="Film3">Film3</option>
-                            <option value="Film4">Film4</option>
+                        <select name="film" id="film-select" required>
+                                <option value=""> -- choisissez un film --</option>
+                            @foreach ($film_list as $film)
+                                <option value="{{ $film->id_film }}">{{ $film->titre }}</option>
+                            @endforeach
                         </select>
 
                         <label for="salle-select">Salle :</label>
-                        <select name="salle" id="salle-select">
-                            <option value="Salle1">Salle1</option>
-                            <option value="Salle2">Salle2</option>
-                            <option value="Salle3">Salle3</option>
-                            <option value="Salle4">Salle4</option>
+                        <select name="salle" id="salle-select" required>
+                                <option value=""> -- choisissez une salle --</option>
+                            @foreach ($salle_list as $salle)
+                                <option value="{{ $salle->id_salle }}">{{ $salle->numero_salle }}</option>
+                            @endforeach
                         </select>
 
                         <label for="date-seance">Date :</label>
-                        <input type="date" id="date-seance" name="date">
+                        <input type="date" id="date-seance" name="date" required>
 
                         <label for="heure-debut">Heure de début :</label>
                         <input type="time" id="heure-debut" name="debut" min="09:00" max="21h00" required>

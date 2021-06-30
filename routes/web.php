@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SeanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,13 +18,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/form-seances', function () {
-    return view('form-seances');
-})->middleware(['auth'])->name('form-seances');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::post('/form-seances', function () {
-    return "Formulaire envoyé ! Film : ". request('film') ." Salle : " . request('salle') ." Date : " . request('date') ." Heure de début : " . request('debut');
-});
+Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware(['auth'])->name('form-seances');
+
+Route::post('/form-seances', [SeanceController::class, 'saveSeance'])->middleware(['auth'])->name('form-seances');
+    // return "Formulaire envoyé ! Film : ". request('film') ." Salle : " . request('salle') ." Date : " . request('date') ." Heure de début : " . request('debut');
 
 Route::get('/display-seances', function () {
     return view('display-seances');
