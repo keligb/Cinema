@@ -45,6 +45,8 @@ class SeanceController extends Controller{
         $seanceObj->heure_debut = $heure_debut;
 
         $seanceObj->save();
+
+        return redirect('/form-seances')->with('status', 'Seance créee !');
     }
 
     public function deleteSeance(Request $request){
@@ -54,5 +56,28 @@ class SeanceController extends Controller{
         $seance->delete();
 
         return redirect('/display-seances')->with('status', 'Seance supprimée !');
+    }
+
+    public function updateSeance(Request $request){
+        $film_list = Films::all();
+        $salle_list = Salles::all();
+
+        $seance_id = $request->seance_id;
+        $seance = Seances::find($seance_id);
+        return view('update-seances', ['seance' => $seance, 'film_list' => $film_list, "salle_list"=>$salle_list]);
+    }
+
+    public function storeSeance(Request $request){
+        
+        $seance_id = $request->seance_id;
+        $seance = Seances::find($seance_id);
+
+        $seance->id_film = $request->film;
+        $seance->id_salle = $request->salle;
+        $seance->date_seance = $request->date;
+        $seance->heure_debut = $request->debut;
+        $seance->save();
+
+        return redirect('/display-seances')->with('status', 'Seance modifiée !');
     }
 }

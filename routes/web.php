@@ -35,7 +35,9 @@ Route::get('/display-seances', [SeanceController::class, 'listSeance'])->middlew
 
 Route::get('/delete/{seance_id}', [SeanceController::class, 'deleteSeance'])->middleware(['auth'])->name('delete');
 
+Route::get('/update-seances/{seance_id}', [SeanceController::class, 'updateSeance'])->middleware(['auth'])->name('update-seances');
 
+Route::post('/update', [SeanceController::class, 'storeSeance'])->middleware(['auth'])->name('store');
 
 require __DIR__.'/auth.php';
 
