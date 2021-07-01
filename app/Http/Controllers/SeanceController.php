@@ -21,6 +21,15 @@ class SeanceController extends Controller{
         return view('form-seances', ['film_list' => $film_list, "salle_list"=>$salle_list]);
     }
 
+    public function listSeance(){
+        // $film_list = Films::all();
+        // $salle_list = Salles::all();
+
+        $seance_list = Seances::all();
+
+        return view('display-seances', ['seance_list' => $seance_list]);
+    }
+
     public function saveSeance(){
 
         $titre_film = request('film');
@@ -36,5 +45,14 @@ class SeanceController extends Controller{
         $seanceObj->heure_debut = $heure_debut;
 
         $seanceObj->save();
+    }
+
+    public function deleteSeance(Request $request){
+
+        $seance_id = $request->seance_id;
+        $seance = Seances::find($seance_id);
+        $seance->delete();
+
+        return redirect('/display-seances')->with('status', 'Seance supprimée !');
     }
 }

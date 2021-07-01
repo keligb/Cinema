@@ -27,9 +27,13 @@ Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware([
 Route::post('/form-seances', [SeanceController::class, 'saveSeance'])->middleware(['auth'])->name('form-seances');
     // return "Formulaire envoyé ! Film : ". request('film') ." Salle : " . request('salle') ." Date : " . request('date') ." Heure de début : " . request('debut');
 
-Route::get('/display-seances', function () {
-    return view('display-seances');
-})->middleware(['auth'])->name('display-seances');
+// Route::get('/display-seances', function () {
+//     return view('display-seances');
+// })->middleware(['auth'])->name('display-seances');
+
+Route::get('/display-seances', [SeanceController::class, 'listSeance'])->middleware(['auth'])->name('display-seances');
+
+Route::get('/delete/{seance_id}', [SeanceController::class, 'deleteSeance'])->middleware(['auth'])->name('delete');
 
 
 
