@@ -22,6 +22,6 @@ class IsAdmin
             return $next($request);
         }
 
-        return redirect('/dashboard'); // Mettre la route destiné au dashboard de l'user
+        return redirect('/dashboard-user'); // Mettre la route destiné au dashboard de l'user
     }
 }

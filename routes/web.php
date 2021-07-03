@@ -22,9 +22,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['admin'])->name('dashboard');
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard-user');
-// })->middleware(['user'])->name('dashboard');
+Route::get('/dashboard-user', function () {
+    return view('dashboard-user');
+})->middleware(['user'])->name('dashboard-user');
 
 Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware(['admin'])->name('form-seances');
 
