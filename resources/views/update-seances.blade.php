@@ -36,10 +36,10 @@
 
                         <label for="heure-debut">Heure de début :</label>
                         <input type="time" id="heure-debut" name="debut" min="09:00" max="22:00" value="{{ $seance->heure_debut }}" required>
-
+                        
+                        <input type="hidden" name="id" value="{{ $seance->id }}" >
                         <input type="submit" value="Enregistrer">
                     </form>
-
                 </div>
             </div>
 

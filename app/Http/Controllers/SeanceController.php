@@ -64,13 +64,15 @@ class SeanceController extends Controller{
 
         $seance_id = $request->seance_id;
         $seance = Seances::find($seance_id);
+
         return view('update-seances', ['seance' => $seance, 'film_list' => $film_list, "salle_list"=>$salle_list]);
     }
 
     public function storeSeance(Request $request){
         
-        $seance_id = $request->seance_id;
+        $seance_id = $request->id;
         $seance = Seances::find($seance_id);
+        
 
         $seance->id_film = $request->film;
         $seance->id_salle = $request->salle;
@@ -79,5 +81,6 @@ class SeanceController extends Controller{
         $seance->save();
 
         return redirect('/display-seances')->with('status', 'Seance modifiée !');
+        // echo $seance;
     }
 }

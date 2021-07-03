@@ -36,7 +36,7 @@
                                     <td>{{ $seance->date_seance }}</td>
                                     <td>{{ $seance->heure_debut }}</td>
                                     <td>00:00:00</td>
-                                    <td><a href="/update-seances/{{ $seance->id }}">Modifier</a></td>
+                                    <td><a href="/update/{{ $seance->id }}">Modifier</a></td>
                                     <td><a href="/delete/{{ $seance->id }}">Supprimer</a></td>
                                 </tr>
                             @endforeach
