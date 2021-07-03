@@ -21,12 +21,4 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/exemple', function () {
-    return view('exemple');
-})->middleware(['admin'])->name('exemple');
-
-Route::fallback(function() {
-    return view('403');
- });
-
 require __DIR__.'/auth.php';
