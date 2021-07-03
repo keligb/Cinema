@@ -25,11 +25,6 @@ Route::get('/dashboard', function () {
 Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware(['auth'])->name('form-seances');
 
 Route::post('/form-seances', [SeanceController::class, 'saveSeance'])->middleware(['auth'])->name('form-seances');
-    // return "Formulaire envoyé ! Film : ". request('film') ." Salle : " . request('salle') ." Date : " . request('date') ." Heure de début : " . request('debut');
-
-// Route::get('/display-seances', function () {
-//     return view('display-seances');
-// })->middleware(['auth'])->name('display-seances');
 
 Route::get('/display-seances', [SeanceController::class, 'listSeance'])->middleware(['auth'])->name('display-seances');
 
@@ -41,5 +36,3 @@ Route::post('/update', [SeanceController::class, 'storeSeance'])->middleware(['a
 
 require __DIR__.'/auth.php';
 
-// Lien utiles : https://laravel.com/docs/5.0/eloquent#introduction
-// https://nouvelle-techno.fr/actualites/laravel-les-requetes-simples-en-base-de-donnees
