@@ -20,19 +20,23 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['admin'])->name('dashboard');
 
-Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware(['auth'])->name('form-seances');
+// Route::get('/dashboard', function () {
+//     return view('dashboard-user');
+// })->middleware(['user'])->name('dashboard');
 
-Route::post('/form-seances', [SeanceController::class, 'saveSeance'])->middleware(['auth'])->name('form-seances');
+Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware(['admin'])->name('form-seances');
 
-Route::get('/display-seances', [SeanceController::class, 'listSeance'])->middleware(['auth'])->name('display-seances');
+Route::post('/form-seances', [SeanceController::class, 'saveSeance'])->middleware(['admin'])->name('form-seances');
 
-Route::get('/delete/{seance_id}', [SeanceController::class, 'deleteSeance'])->middleware(['auth'])->name('delete');
+Route::get('/display-seances', [SeanceController::class, 'listSeance'])->middleware(['admin'])->name('display-seances');
 
-Route::get('/update/{seance_id}', [SeanceController::class, 'updateSeance'])->middleware(['auth'])->name('update');
+Route::get('/delete/{seance_id}', [SeanceController::class, 'deleteSeance'])->middleware(['admin'])->name('delete');
 
-Route::post('/update', [SeanceController::class, 'storeSeance'])->middleware(['auth'])->name('store');
+Route::get('/update/{seance_id}', [SeanceController::class, 'updateSeance'])->middleware(['admin'])->name('update');
+
+Route::post('/update', [SeanceController::class, 'storeSeance'])->middleware(['admin'])->name('store');
 
 require __DIR__.'/auth.php';
 
