@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SeanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware(['auth'])->name('form-seances');
+
+Route::post('/form-seances', [SeanceController::class, 'saveSeance'])->middleware(['auth'])->name('form-seances');
+
+Route::get('/display-seances', [SeanceController::class, 'listSeance'])->middleware(['auth'])->name('display-seances');
+
+Route::get('/delete/{seance_id}', [SeanceController::class, 'deleteSeance'])->middleware(['auth'])->name('delete');
+
+Route::get('/update/{seance_id}', [SeanceController::class, 'updateSeance'])->middleware(['auth'])->name('update');
+
+Route::post('/update', [SeanceController::class, 'storeSeance'])->middleware(['auth'])->name('store');
+
 require __DIR__.'/auth.php';
+
