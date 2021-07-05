@@ -21,6 +21,15 @@
                         {{ __('Voir les séances') }}
                     </x-nav-link>
 
+    
+                    <x-nav-link :href="route('add-forfait')" :active="request()->routeIs('add-forfait')">
+                        {{ __('Forfaits') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('display-forfaits')" :active="request()->routeIs('display-forfaits')">
+                        {{ __('Voir les forfaits') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 
