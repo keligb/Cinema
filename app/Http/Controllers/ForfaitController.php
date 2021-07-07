@@ -31,7 +31,7 @@ class ForfaitController extends Controller{
     }
 
     public function listForfaits(){
-        $forfait_list = Forfait::all();
+        $forfait_list = Forfait::paginate(5);
 
         return view('display-forfaits', ['forfait_list' => $forfait_list]);
     }

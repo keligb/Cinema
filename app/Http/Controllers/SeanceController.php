@@ -22,7 +22,7 @@ class SeanceController extends Controller{
     }
 
     public function listSeance(){
-        $seance_list = Seances::all();
+        $seance_list = Seances::paginate(5);
 
         return view('display-seances', ['seance_list' => $seance_list]);
     }

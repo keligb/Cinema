@@ -1,0 +1,30 @@
+.pen-edit{
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-forfait{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 25px;
+}
+
+.img-pen{
+    padding-top: 5px;
+    padding-right: 10px;
+}
+
+.add-forfait-link{
+    font-weight: bold;
+}
+
+.add-forfait-link:hover{
+    text-decoration: underline;
+}
+
+/* .add-forfait-link{
+    margin-bottom: 30px;
+} */

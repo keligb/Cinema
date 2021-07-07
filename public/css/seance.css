@@ -1,4 +1,4 @@
-table, td{
+/* table, td{
     border: solid black 1px;
     padding: 30px;
 }
@@ -6,4 +6,35 @@ table, td{
 .tab{
    display: flex;
    justify-content: center;
+} */
+
+table{
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150vh;
+    height: 50vh;
+    margin-top: 20px;
+}
+
+th{
+    /* background-color: #336AB2; */
+    background-color: #22263C;
+    color: #fff;
+}
+
+td{
+    text-align: center;
+}
+
+table tr:nth-child(even){
+    background: #F8F8F8;
+}
+
+table tr:hover{
+    background: rgb(177, 205, 230);
+}
+
+.title-table{
+    font-weight: bold;
 }

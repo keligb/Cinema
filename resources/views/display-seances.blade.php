@@ -1,5 +1,6 @@
 <x-app-layout>
     <link rel="stylesheet" href="{{ url('/css/seance.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/forfait.css') }}">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Gérer les séances') }}
@@ -17,12 +18,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="title-table">
                                 <td>Film</td>
                                 <td>Salle</td>
                                 <td>Date</td>
                                 <td>Heure de début</td>
-                                <td>Heure de fin</td>
+                                <!-- <td>Heure de fin</td> -->
                                 <td>Modifier la séance</td>
                                 <td>Supprimer la séance</td>
                             </tr>
@@ -33,13 +34,15 @@
                                     <td>{{ $seance->salle->numero_salle }}</td>
                                     <td>{{ $seance->date_seance }}</td>
                                     <td>{{ $seance->heure_debut }}</td>
-                                    <td>00:00:00</td>
-                                    <td><a href="/update/{{ $seance->id }}">Modifier</a></td>
-                                    <td><a href="/delete/{{ $seance->id }}">Supprimer</a></td>
+                                    <!-- <td>00:00:00</td> -->
+                                    <td><a href="/update/{{ $seance->id }}"><img src="../../../pen-edit.svg" class="pen-edit"></a></td>
+                                    <td><a href="/delete/{{ $seance->id }}">&#x2717;</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <br />
+                    {{ $seance_list->links() }}
                 </div>
             </div>
         </div>
