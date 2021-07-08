@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SeanceController;
 use App\Http\Controllers\ForfaitController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ Route::get('/', function () {
 
 Route::get('/home', function (){
     return view('welcome');
-})->middleware(['admin'])->name('home');
+})->middleware(['auth'])->name('home');
 
 
 Route::get('/dashboard', function () {
@@ -32,7 +33,7 @@ Route::get('/dashboard-user', function () {
     return view('dashboard-user');
 })->middleware(['user'])->name('dashboard-user');
 
-/* ----- CRUD SEANCES ----- */
+/* ----- CRUD SEANCES ADMIN----- */
 
 Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware(['admin'])->name('form-seances');
 
@@ -46,7 +47,7 @@ Route::get('/update/{seance_id}', [SeanceController::class, 'updateSeance'])->mi
 
 Route::post('/update', [SeanceController::class, 'storeSeance'])->middleware(['admin'])->name('store');
 
-/* ----- CRUD FORFAITS ----- */
+/* ----- CRUD FORFAITS ADMIN ----- */
 
 // Route::get('/add-forfait', [ForfaitController::class, ''])->middleware(['admin'])->name('add-forfait');
 
@@ -61,6 +62,10 @@ Route::get('/update-forfait/{forfait_id}', [ForfaitController::class, 'updateFor
 Route::post('/update-forfait', [ForfaitController::class, 'storeForfait'])->middleware(['admin'])->name('storeForfait');
 
 Route::get('/delete-forfait/{forfait_id}', [ForfaitController::class, 'deleteForfait'])->middleware(['admin'])->name('deleteForfait');
+
+/* ----- ESPACE UTILISATEUR ----- */ 
+
+Route::get('/mes-seances', [UserController::class, 'listUserSeances'])->middleware(['user'])->name('mes-seances');
 
 
 
