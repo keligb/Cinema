@@ -11,6 +11,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 tab">
+                    <div class="add-forfait">
+                        <div class="img-pen">
+                            <img src="../../../plus.png" class="pen-edit">
+                        </div>
+                        <div>
+                            <a href="/form-seances" class="add-forfait-link">Programmer une séance</a>
+                        </div>
+                   </div>
+
                     <table>
                         <thead>
                             <tr>
@@ -36,7 +45,7 @@
                                     <td>{{ $seance->heure_debut }}</td>
                                     <!-- <td>00:00:00</td> -->
                                     <td><a href="/update/{{ $seance->id }}"><img src="../../../pen-edit.svg" class="pen-edit"></a></td>
-                                    <td><a href="/delete/{{ $seance->id }}">&#x2717;</a></td>
+                                    <td><a href="/delete/{{ $seance->id }}">&#128465;</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

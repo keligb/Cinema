@@ -17,18 +17,9 @@
                         {{ __('Accueil') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('form-seances')" :active="request()->routeIs('form-seances')">
-                        {{ __('Programmer une séance') }}
-                    </x-nav-link>
-
                     <x-nav-link :href="route('display-seances')" :active="request()->routeIs('display-seances')">
-                        {{ __('Voir les séances') }}
+                        {{ __('Séances') }}
                     </x-nav-link>
-
-    
-                    <!-- <x-nav-link :href="route('add-forfait')" :active="request()->routeIs('add-forfait')">
-                        {{ __('Forfaits') }}
-                    </x-nav-link> -->
 
                     <x-nav-link :href="route('display-forfaits')" :active="request()->routeIs('display-forfaits')">
                         {{ __('Forfaits') }}
