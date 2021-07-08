@@ -22,10 +22,7 @@ class SeanceController extends Controller{
     }
 
     public function listSeance(){
-        // $film_list = Films::all();
-        // $salle_list = Salles::all();
-
-        $seance_list = Seances::all();
+        $seance_list = Seances::paginate(5);
 
         return view('display-seances', ['seance_list' => $seance_list]);
     }

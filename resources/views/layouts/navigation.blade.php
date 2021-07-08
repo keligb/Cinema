@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('form-seances') }}">
+                    <a href="{{ route('dashboard') }}">
                         <!-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> -->
                         <img src="../../../CGR_logo.png" class="block h-10 w-autofill-current text-gray-600" />
                     </a>
@@ -13,12 +13,16 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('form-seances')" :active="request()->routeIs('form-seances')">
-                        {{ __('Programmer une séance') }}
+                    <x-nav-link :href="route('home')">
+                        {{ __('Accueil') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('display-seances')" :active="request()->routeIs('display-seances')">
-                        {{ __('Voir les séances') }}
+                        {{ __('Séances') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('display-forfaits')" :active="request()->routeIs('display-forfaits')">
+                        {{ __('Forfaits') }}
                     </x-nav-link>
 
                 </div>
