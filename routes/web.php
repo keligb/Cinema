@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SeanceController;
+use App\Http\Controllers\ChargementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,10 @@ Route::get('/delete/{seance_id}', [SeanceController::class, 'deleteSeance'])->mi
 Route::get('/update/{seance_id}', [SeanceController::class, 'updateSeance'])->middleware(['admin'])->name('update');
 
 Route::post('/update', [SeanceController::class, 'storeSeance'])->middleware(['admin'])->name('store');
+
+Route::get('/chargements', [ChargementController::class, 'display'])->middleware(['admin'])->name('chargements');
+
+Route::post('/update-chargement', [ChargementController::class, 'updateChargement'])->middleware(['admin'])->name('updateChargement');
 
 require __DIR__.'/auth.php';
 

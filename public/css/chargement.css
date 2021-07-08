@@ -1,0 +1,22 @@
+.container-chargement {
+    display: flex;
+    justify-content: space-around;
+}
+.card-chargement {
+    width: 100%;
+}
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.nom-chargement {
+    font-size: 2rem;
+}
+
+.btn-edit-chargement
+{
+    background-color: tomato;
+    color: white;
+}
