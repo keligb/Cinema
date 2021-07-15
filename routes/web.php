@@ -73,5 +73,11 @@ Route::get('/mes-seances', [UserController::class, 'listUserSeances'])->middlewa
 
 Route::get('/delete-ma-seance/{seance_id}', [UserController::class, 'deleteUserSeances'])->middleware(['user'])->name('delete-user-seance');
 
+/* ----- ESPACE COMMUN -----*/
+
+Route::get('/details-film/{film_id}', function () {
+    return view('film-seances');
+})->name('film-seance');
+
 require __DIR__.'/auth.php';
 

@@ -46,7 +46,7 @@
                 </div>
 
                 @foreach($affiche_film as $affiche)
-                    <a href="#"><img src="{{ $affiche->url_img }}" class="affiche-film" /></a>
+                    <a href="/details-film/{{ $affiche->id_film }}"><img src="{{ $affiche->url_img }}" class="affiche-film" /></a>
                 @endforeach
 
                 {{ $affiche_film->links() }}
