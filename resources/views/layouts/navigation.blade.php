@@ -26,19 +26,17 @@
                         <x-nav-link :href="route('display-forfaits')" :active="request()->routeIs('display-forfaits')">
                             {{ __('Forfaits') }}
                         </x-nav-link>
+
+                        <x-nav-link :href="route('chargements')" :active="request()->routeIs('chargements')">
+                        {{ __('Chargements') }}
+                        </x-nav-link>
                     @else
                         <x-nav-link :href="route('mes-seances')" :active="request()->routeIs('mes-seances')">
                             {{ __('Mes séances') }}
                         </x-nav-link>
                     @endif
 
-                    <x-nav-link :href="route('chargements')" :active="request()->routeIs('chargements')">
-                        {{ __('Chargements') }}
-                    </x-nav-link>
-
-                    <x-nav-link>
-                        {{ __('Forfaits') }}
-                    </x-nav-link>
+                   
 
                 </div>
             </div>
