@@ -1,0 +1,66 @@
+.container-chargement {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-chargement, .card-chargement-proposé {
+    width: 100%;
+    box-shadow: 2px 2px 5px #474747;
+}
+
+.titre-card-chargement {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-chargement {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+#nom-chargement, #prix-chargement {
+    width: 50%;
+}
+
+.card-chargement-proposé {
+    height: 50%;
+}
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.nom-chargement-propose {
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.modalite {
+    color: #FF5252;
+}
+
+.button-card-chargement {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btn-edit-chargement, .btn-edit-suppression {
+    border-radius: 5px;
+    padding: 7px;
+    color: white;
+}
+
+.btn-edit-chargement {
+    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+}
+
+.btn-edit-suppression {
+    background-color: tomato;
+}
+

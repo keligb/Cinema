@@ -13,12 +13,25 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+                    <x-nav-link>
+                        {{ __('Accueil') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('form-seances')" :active="request()->routeIs('form-seances')">
                         {{ __('Programmer une séance') }}
                     </x-nav-link>
 
                     <x-nav-link :href="route('display-seances')" :active="request()->routeIs('display-seances')">
                         {{ __('Voir les séances') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('chargements')" :active="request()->routeIs('chargements')">
+                        {{ __('Chargements') }}
+                    </x-nav-link>
+
+                    <x-nav-link>
+                        {{ __('Forfaits') }}
                     </x-nav-link>
 
                 </div>

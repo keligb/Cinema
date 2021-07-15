@@ -1,0 +1,52 @@
+<x-app-layout>
+    <link rel="stylesheet" href="{{ url('/css/chargement.css') }}">
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Chargements proposés') }}
+        </h2>
+    </x-slot>
+    <div class="container-chargement">
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="card-chargement bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <p class="titre-card-chargement">Ajouter un chargement</p>
+                    <div class="card-contenu p-6 bg-white border-b border-gray-200">
+                        {!! Form::open(['route' => 'addChargement']) !!}
+                        <div class="form-chargement">
+                            <x-label for="nom-chargement" class="info-chargement">Nom du chargement</x-label>
+                            <x-input id="nom-chargement" type="text" name="nom_chargement" />
+                        </div>
+                        <div class="form-chargement">
+                            <x-label for="prix-chargement" class="info-chargement">Prix</x-label>
+                            <x-input id="prix-chargement" type="text" name="prix" />
+                        </div>
+                        <div class="form-chargement">
+                            <x-button>
+                                    {{ __('Enregistrer') }}
+                            </x-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @foreach ($chargements_list as $chargement)
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div class="card-chargement-proposé bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                        <h2 class="nom-chargement-propose">{{ $chargement->nom_chargement }}</h2>
+                        <div class="card-contenu p-6 bg-white border-b border-gray-200">
+                            <ul>
+                                <li>Prix : {{ $chargement->prix }}€ / place</li>
+                            </ul>
+                            <p class="modalite"><em>Modalités : Utilisation dans les 3 prochains mois</em></p>
+                        </div>
+                        <div class="button-card-chargement">
+                            <button class="btn-edit-chargement"><a href="/update-chargement/{{ $chargement->id_chargement }}">Modifier</a></button>
+                            <button class="btn-edit-suppression"><a href="/delete-chargement/{{ $chargement->id_chargement }}">Supprimer</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</x-app-layout>
