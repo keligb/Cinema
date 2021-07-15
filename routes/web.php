@@ -67,7 +67,7 @@ Route::get('/delete-forfait/{forfait_id}', [ForfaitController::class, 'deleteFor
 
 Route::get('/mes-seances', [UserController::class, 'listUserSeances'])->middleware(['user'])->name('mes-seances');
 
-
+Route::get('/delete-ma-seance/{seance_id}', [UserController::class, 'deleteUserSeances'])->middleware(['user'])->name('delete-user-seance');
 
 require __DIR__.'/auth.php';
 

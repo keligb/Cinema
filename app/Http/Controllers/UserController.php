@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Seances;
 use App\Models\Films;
 use App\Models\Salles;
+use App\Models\user_has_seances;
 
 class UserController extends Controller{
 
@@ -15,9 +16,19 @@ class UserController extends Controller{
     }
 
     function listUserSeances(){
-        $seance_list = Seances::paginate(5);
+        // $seance_list = Seances::paginate(5);
+
+        $seance_list = user_has_seances::all();
 
         return view('mes-seances', ['seance_list' => $seance_list]);
+    }
+
+    public function deleteUserSeances(Request $request){
+        $seance_id = $request->seance_id;
+        $seance = user_has_seances::find($seance_id);
+        $seance->delete();
+
+        return redirect('/mes-seances')->with('status', 'Réservation annulée !');
     }
 
 }

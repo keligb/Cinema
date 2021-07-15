@@ -28,14 +28,18 @@
                                 <td>Salle</td>
                                 <td>Annuler la réservation</td>
                             </tr>
+
                             @foreach($seance_list as $seance)
+                               @if ($seance->list_user->id == Auth::id())
                                 <tr>
-                                    <td>{{ $seance->film->titre }}</td>
-                                    <td>{{ $seance->heure_debut }}</td>
-                                    <td>{{ $seance->date_seance }}</td>
-                                    <td>{{ $seance->salle->numero_salle }}</td>
-                                    <td>&#128465;</td>
+                                    <td>{{ $seance->list_data->film->titre }}</td>
+                                    <td>{{ $seance->list_data->heure_debut }}</td>
+                                    <td>{{ $seance->list_data->date_seance }} </td>
+                                    <td>{{ $seance->list_data->id_salle }}</td>
+                                    <!-- <td>{{ $seance->id }}</td> -->
+                                    <td><a href="/delete-ma-seance/{{ $seance->id }}">&#128465;</a></td>
                                 </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>
@@ -46,3 +50,5 @@
         </div>
     </div>
 </x-app-layout>
+
+<!-- if $seance->list_user->id == Auth::id()" (id de l'utilisateur connecté) -->

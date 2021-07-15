@@ -43,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function seances_utilisateurs(){
-        return $this->belongsTo(Seance::class, 'id_seance');
-    }
+    // public function seances_utilisateurs(){
+    //     return $this->belongsTo(Seance::class, 'id_seance');
+    // }
 }
