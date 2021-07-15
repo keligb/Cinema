@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SeanceController;
 use App\Http\Controllers\ForfaitController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,17 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
 
-Route::get('/home', function (){
-    return view('welcome');
-})->middleware(['auth'])->name('home');
+// Route::get('/home', function (){
+//     return view('welcome');
+// })->name('home');
 
+Route::get('/', [FilmController::class, 'getAffiche'])->name('welcome');
+
+Route::get('/home', [FilmController::class, 'getAffiche'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
