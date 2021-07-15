@@ -5,6 +5,7 @@ use App\Http\Controllers\SeanceController;
 use App\Http\Controllers\ForfaitController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\AllController;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,9 +76,13 @@ Route::get('/delete-ma-seance/{seance_id}', [UserController::class, 'deleteUserS
 
 /* ----- ESPACE COMMUN -----*/
 
-Route::get('/details-film/{film_id}', function () {
-    return view('film-seances');
-})->name('film-seance');
+// Route::get('/details-film/{film_id}', function () {
+//     return view('film-seances');
+// })->name('film-seance');
+
+Route::get('/details-film/{film_id}', [AllController::class, 'getFilmInfos'])->name('film-seance');
+
+Route::post('/reserver', [AllController::class, 'reserverSeance'])->middleware(['auth'])->name('reserver-seance');
 
 require __DIR__.'/auth.php';
 
