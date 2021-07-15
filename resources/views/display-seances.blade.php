@@ -1,5 +1,6 @@
 <x-app-layout>
     <link rel="stylesheet" href="{{ url('/css/seance.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/forfait.css') }}">
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Gérer les séances') }}
@@ -10,6 +11,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 tab">
+                    <div class="add-forfait">
+                        <div class="img-pen">
+                            <img src="../../../plus.png" class="pen-edit">
+                        </div>
+                        <div>
+                            <a href="/form-seances" class="add-forfait-link">Programmer une séance</a>
+                        </div>
+                   </div>
+
                     <table>
                         <thead>
                             <tr>
@@ -17,12 +27,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="title-table">
                                 <td>Film</td>
                                 <td>Salle</td>
                                 <td>Date</td>
                                 <td>Heure de début</td>
-                                <td>Heure de fin</td>
+                                <!-- <td>Heure de fin</td> -->
                                 <td>Modifier la séance</td>
                                 <td>Supprimer la séance</td>
                             </tr>
@@ -33,13 +43,15 @@
                                     <td>{{ $seance->salle->numero_salle }}</td>
                                     <td>{{ $seance->date_seance }}</td>
                                     <td>{{ $seance->heure_debut }}</td>
-                                    <td>00:00:00</td>
-                                    <td><a href="/update/{{ $seance->id }}">Modifier</a></td>
-                                    <td><a href="/delete/{{ $seance->id }}">Supprimer</a></td>
+                                    <!-- <td>00:00:00</td> -->
+                                    <td><a href="/update/{{ $seance->id }}"><img src="../../../pen-edit.svg" class="pen-edit"></a></td>
+                                    <td><a href="/delete/{{ $seance->id }}">&#128465;</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    <br />
+                    {{ $seance_list->links() }}
                 </div>
             </div>
         </div>
