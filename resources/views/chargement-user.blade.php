@@ -14,7 +14,7 @@
 
     <body class="anthialiased">
         <div class="flex-header-offre">
-                <a href="/home"><img  class="accueil" src="../../img/accueil.png"></a>
+                <a href="/home"><img  class="accueil" src="storage/img/accueil.png"/></a>
         </div>
 
         <h1 class="titre-offre-chargement">Offres de chargement</h1>
@@ -30,7 +30,7 @@
                                 <ul>
                                     <li>Prix : {{ $offre->prix }}€ / place</li>
                                 </ul>
-                                <p class="modalite"><em>Modalités : Utilisation dans les 3 prochains mois</em></p>
+                                <p class="modalite"><em>Modalités : nom remboursable</em></p>
                             </div>
                             {!! Form::open(['route' => 'paiement-chargement']) !!}
                                 {{ csrf_field() }}

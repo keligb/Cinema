@@ -17,13 +17,14 @@
 
     <body>
         <div class="flex-header-details">
-            <a href="/home"><img  class="accueil" src="../../img/accueil.png"></a>
+            <a href="/home"><img  class="accueil" src="{{ asset('storage/img/accueil.png') }}"/></a>
             <h1 class="titre-film">{{ $info_list->titre }}</h1>
         </div>
 
         <div class="container-tab">
 
-            <img src="{{ $info_list->url_img }}" class="affiche-film-details">
+            <!-- <img src="{{ $info_list->url_img }}" class="affiche-film-details"> -->
+            <img src="{{ asset('storage/img/'.$info_list->url_img) }}" class="affiche-film-details" />
 
             <!-- <h3>Résumé :</h3> -->
 

@@ -4,7 +4,7 @@
     flex-wrap: wrap;
 }
 
-.card-chargement, .card-chargement-propose {
+.card-chargement, .card-chargement-propose, .card-offre-chargement-propose {
     width: 100%;
     box-shadow: 2px 2px 5px #474747;
 }
@@ -87,4 +87,8 @@ h2 {
 .update-chargement-button {
     margin-top: 10px;
     margin-left: 30vh;
+}
+
+.card-offre-chargement-propose{
+    margin: 20px;
 }
