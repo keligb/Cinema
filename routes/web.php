@@ -79,5 +79,11 @@ Route::get('/mes-seances', [UserController::class, 'listUserSeances'])->middlewa
 
 Route::get('/delete-ma-seance/{seance_id}', [UserController::class, 'deleteUserSeances'])->middleware(['user'])->name('delete-user-seance');
 
+Route::get('/profil', [UserController::class, 'profilUser'])->middleware(['auth'])->name('profil');
+
+Route::post('/profil-update', [UserController::class, 'updateUser'])->middleware(['auth'])->name('profilUpdate');
+
+Route::get('/profil-delete', [UserController::class, 'deleteUser'])->middleware(['user'])->name('profilDelete');
+
 require __DIR__.'/auth.php';
 

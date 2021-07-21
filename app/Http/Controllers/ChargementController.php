@@ -12,26 +12,28 @@ class ChargementController extends Controller
         return view('chargements', ['chargements_list' => $chargements_list]);
     }
 
-    public function addChargement() {
-        return view('chargements-add');
-        $nom_chargement = request('nom');
-        $prix = request('prix');
+    // public function addChargement() {
+    //     return view('chargements-add');
+    //     $nom_chargement = request('nom');
+    //     $prix = request('prix');
 
-        $chargementObj = new Chargement();
+    //     $chargementObj = new Chargement();
 
-        $chargementObj->nom_chargement = $nom_chargement;
-        $chargementObj->prix = $prix;
+    //     $chargementObj->nom_chargement = $nom_chargement;
+    //     $chargementObj->prix = $prix;
 
-        $chargementObj->save();
+    //     $chargementObj->save();
 
-        return redirect('/chargements');
-    }
+    //     return redirect('/chargements');
+    // }
 
     public function save(Request $request) 
     {
         $chargement = new Chargement;
         $chargement->nom_chargement = $request->nom_chargement;
+        $chargement->nb_places = $request->nb_places;
         $chargement->prix = $request->prix;
+        $chargement->modalite = $request->modalite;
         $chargement->save(); 
 
         return redirect('/chargements');
@@ -52,7 +54,9 @@ class ChargementController extends Controller
         $chargement = Chargement::find($chargement_id);
 
         $chargement->nom_chargement = $request->nom_chargement;
+        $chargement->nb_places = $request->nb_places;
         $chargement->prix = $request->prix;
+        $chargement->modalite = $request->modalite;
         $chargement->save();
 
         return redirect('/chargements');

@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class user_has_seances extends Model
 {
     use HasFactory;
+
+    protected $primaryKey = "id";
+    protected $tableName = "user_has_seances";
     
     public function list_data(){
         return $this->belongsTo(Seances::class, 'id_seance');

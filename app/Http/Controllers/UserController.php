@@ -8,6 +8,8 @@ use App\Models\Seances;
 use App\Models\Films;
 use App\Models\Salles;
 use App\Models\user_has_seances;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller{
 
@@ -29,6 +31,64 @@ class UserController extends Controller{
         $seance->delete();
 
         return redirect('/mes-seances')->with('status', 'Réservation annulée !');
+    }
+
+    // public function save(Request $request) 
+    // {
+        // $user = new User;
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = $request->password;
+        // $user->save();
+
+        // return redirect('/profil');
+    // }
+
+    public function profilUser(Request $request) 
+    {
+        // dd($user);
+        // $user_id = $request->user_id;
+        // $user = User::find($user_id);
+        $user = Auth::user();
+        // dd($user);
+        // $user_id = $request->user_id;
+        // $user = User::find($user_id);
+        // $user = User::all();
+        return view('profil-user', ['user' => $user]);
+    }
+
+    public function updateUser(Request $request) 
+    {
+
+        // dd($user);
+        $user_id = $request->user_id;
+        $user = User::find($user_id);
+        $user = Auth::user();
+        // dd($user);
+
+        $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = $request->password;
+        $user->password = Hash::make($request->password);
+        // dd($user);
+        $user->save();
+
+        return redirect('/profil');
+    }
+
+    public function deleteUser(Request $request)
+    {
+        $user = Auth::user();
+        $reservations = $user->reservations;
+        
+        foreach ($reservations as $reservation)
+        {
+            $reservation->delete();
+        }
+
+        $user->delete();
+
+        return redirect('/');
     }
 
 }
