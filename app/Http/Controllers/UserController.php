@@ -33,44 +33,20 @@ class UserController extends Controller{
         return redirect('/mes-seances')->with('status', 'Réservation annulée !');
     }
 
-    // public function save(Request $request) 
-    // {
-        // $user = new User;
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = $request->password;
-        // $user->save();
-
-        // return redirect('/profil');
-    // }
-
     public function profilUser(Request $request) 
     {
-        // dd($user);
-        // $user_id = $request->user_id;
-        // $user = User::find($user_id);
         $user = Auth::user();
-        // dd($user);
-        // $user_id = $request->user_id;
-        // $user = User::find($user_id);
-        // $user = User::all();
         return view('profil-user', ['user' => $user]);
     }
 
     public function updateUser(Request $request) 
     {
-
-        // dd($user);
         $user_id = $request->user_id;
         $user = User::find($user_id);
         $user = Auth::user();
-        // dd($user);
 
         $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->password = $request->password;
         $user->password = Hash::make($request->password);
-        // dd($user);
         $user->save();
 
         return redirect('/profil');

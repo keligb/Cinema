@@ -12,21 +12,6 @@ class ChargementController extends Controller
         return view('chargements', ['chargements_list' => $chargements_list]);
     }
 
-    // public function addChargement() {
-    //     return view('chargements-add');
-    //     $nom_chargement = request('nom');
-    //     $prix = request('prix');
-
-    //     $chargementObj = new Chargement();
-
-    //     $chargementObj->nom_chargement = $nom_chargement;
-    //     $chargementObj->prix = $prix;
-
-    //     $chargementObj->save();
-
-    //     return redirect('/chargements');
-    // }
-
     public function save(Request $request) 
     {
         $chargement = new Chargement;

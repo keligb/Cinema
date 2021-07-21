@@ -48,7 +48,6 @@
                                 <li>Prix : {{ $chargement->prix }}€ / place</li>
                             </ul>
                             <p class="modalite"><em>{{ $chargement->modalite }}</em></p>
-                            <!-- <p><strong style="text-decoration: underline; color: red;">Non remboursable</strong></p> -->
                         </div>
                         <div class="button-card-chargement">
                             <button class="btn-edit-chargement"><a href="/update-chargement/{{ $chargement->id_chargement }}">Modifier</a></button>
