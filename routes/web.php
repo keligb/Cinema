@@ -39,6 +39,15 @@ Route::get('/dashboard-user', function () {
     return view('dashboard-user');
 })->middleware(['user'])->name('dashboard-user');
 
+/* ----- CRUD FILMS ADMIN ----- */
+Route::get('/films', [FilmController::class, "index"])
+     ->middleware(['admin'])->name('films');
+
+Route::get('/ajout-film', [FilmController::class, "form"]);
+
+Route::post('/ajout-film', [FilmController::class, "save"])
+     ->middleware(['admin'])->name('ajout-film');
+
 /* ----- CRUD SEANCES ADMIN----- */
 
 Route::get('/form-seances', [SeanceController::class, 'listData'])->middleware(['admin'])->name('form-seances');
