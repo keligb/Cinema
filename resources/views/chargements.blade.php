@@ -52,7 +52,7 @@
                         </div>
                         <div class="button-card-chargement">
                             <button class="btn-edit-chargement"><a href="/update-chargement/{{ $chargement->id_chargement }}">Modifier</a></button>
-                            <button class="btn-edit-suppression"><a href="/delete-chargement/{{ $chargement->id_chargement }}">Supprimer</a></button>
+                            <button class="btn-edit-suppression"><a href="/delete-chargement/{{ $chargement->id_chargement }}" onclick="return confirm('Êtes vous sûr de vouloir supprimer ce chargement ?');">Supprimer</a></button>
                         </div>
                     </div>
                 </div>
