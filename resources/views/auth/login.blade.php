@@ -1,8 +1,9 @@
 <x-guest-layout>
+    <link rel="stylesheet" href="{{ url('/css/welcome.css') }}">
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img src="../../CGR_logo.png" class="block h-10 w-autofill-current text-gray-600 logo-welcome" />
             </a>
         </x-slot>
 

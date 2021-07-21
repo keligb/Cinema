@@ -5,6 +5,8 @@ use App\Http\Controllers\SeanceController;
 use App\Http\Controllers\ChargementController;
 use App\Http\Controllers\ForfaitController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\AllController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +19,17 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('welcome');
 
-Route::get('/home', function (){
-    return view('welcome');
-})->middleware(['auth'])->name('home');
+// Route::get('/home', function (){
+//     return view('welcome');
+// })->name('home');
 
+Route::get('/', [FilmController::class, 'getAffiche'])->name('welcome');
+
+Route::get('/home', [FilmController::class, 'getAffiche'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -78,6 +83,18 @@ Route::get('/delete-forfait/{forfait_id}', [ForfaitController::class, 'deleteFor
 Route::get('/mes-seances', [UserController::class, 'listUserSeances'])->middleware(['user'])->name('mes-seances');
 
 Route::get('/delete-ma-seance/{seance_id}', [UserController::class, 'deleteUserSeances'])->middleware(['user'])->name('delete-user-seance');
+
+/* ----- ESPACE COMMUN -----*/
+
+// Route::get('/details-film/{film_id}', function () {
+//     return view('film-seances');
+// })->name('film-seance');
+
+Route::get('/details-film/{film_id}', [AllController::class, 'getFilmInfos'])->name('film-seance');
+
+Route::post('/reserver', [AllController::class, 'reserverSeance'])->middleware(['auth'])->name('reserver-seance');
+
+Route::get('/offres-chargements', [AllController::class, 'getChargements'])->name('offres-chargements');
 
 require __DIR__.'/auth.php';
 
