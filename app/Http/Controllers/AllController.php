@@ -8,6 +8,8 @@ use App\Models\Salles;
 use App\Models\Seances;
 use App\Models\user_has_seances;
 use App\Models\Forfait;
+use App\Models\Chargement;
+use App\Models\User;
 
 class AllController extends Controller{
 
@@ -39,7 +41,23 @@ class AllController extends Controller{
     }
 
     public function getChargements(){
-        return view ('chargement-user');
+
+        $offre_chargement = Chargement::all();
+
+        return view ('chargement-user', ['offre_chargement' => $offre_chargement]);
+    }
+
+    public function payerChargement(Request $request){
+        
+        $chargement_id  = request('idChargement');
+        $id_user = request('id_user_connected');
+        
+        $obj = User::find($id_user);
+
+        $obj->id_chargement = $chargement_id;
+        $obj->save();
+
+        return redirect ('/offres-chargements')->with('status', 'Paiement validé !');
     }
 
 }

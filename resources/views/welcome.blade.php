@@ -17,7 +17,7 @@
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
 
-                    <a href="{{ url('/offres-chargements') }}" class="text-sm text-gray-700 underline">Offre de chargement</a>
+                    <a href="{{ url('/offres-chargements') }}" class="text-sm text-gray-700 underline">Offres de chargement</a>
 
                     @auth
                         @if (Auth::user() && Auth::user()->role == "admin")

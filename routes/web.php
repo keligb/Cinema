@@ -96,5 +96,7 @@ Route::post('/reserver', [AllController::class, 'reserverSeance'])->middleware([
 
 Route::get('/offres-chargements', [AllController::class, 'getChargements'])->name('offres-chargements');
 
+Route::post('/paiement-chargement', [AllController::class, 'payerChargement'])->middleware(['auth'])->name('paiement-chargement');
+
 require __DIR__.'/auth.php';
 

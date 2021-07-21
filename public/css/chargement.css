@@ -4,7 +4,7 @@
     flex-wrap: wrap;
 }
 
-.card-chargement, .card-chargement-proposé {
+.card-chargement, .card-chargement-proposé, .card-offre-chargement-propose {
     width: 100%;
     box-shadow: 2px 2px 5px #474747;
 }
@@ -62,5 +62,10 @@ h2 {
 
 .btn-edit-suppression {
     background-color: tomato;
+}
+
+.card-offre-chargement-propose {
+    height: 50%;
+    /* width: 20%; */
 }
 

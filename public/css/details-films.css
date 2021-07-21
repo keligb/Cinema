@@ -21,10 +21,11 @@
     /* height: 25vh; */
 }
 
-/* .flex-header-details{
+.flex-header-details{
     display: flex;
     width: 100vw;
-} */
+    /* height: 10vh; */
+}
 
 .button-reserver{
     cursor: pointer;
@@ -52,4 +53,25 @@
 
 .modale-title{
     text-align: center;
+}
+
+.titre-offre-chargement{
+    /* padding-top: 0px; */
+    text-align: center;
+    margin-bottom: 10vh;
+}
+
+.flex-header-offre{
+    display: flex;
+    width: 100vw;
+    height: 3vh;
+}
+
+.bouton-valider-chargement{
+    margin-left: 12vw;
+    margin-bottom: 2vh;
+    border-radius: 5px;
+    background-color: #202a37;
+    color: white;
+    /* margin-right: auto; */
 }
