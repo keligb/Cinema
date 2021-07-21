@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '681f149d4d51a00d7dc80fe219b6840fdb1aadd2',
+    'reference' => 'f7f473af42491efffd60e4e5551af8ceb22799f6',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -42,6 +42,42 @@
       array (
         0 => '*',
       ),
+    ),
+    'doctrine/cache' => 
+    array (
+      'pretty_version' => '2.0.3',
+      'version' => '2.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c9622c6820d3ede1e2315a6a377ea1076e421d88',
+    ),
+    'doctrine/dbal' => 
+    array (
+      'pretty_version' => '2.13.2',
+      'version' => '2.13.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8dd39d2ead4409ce652fd4f02621060f009ea5e4',
+    ),
+    'doctrine/deprecations' => 
+    array (
+      'pretty_version' => 'v0.5.3',
+      'version' => '0.5.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9504165960a1f83cc1480e2be1dd0a0478561314',
+    ),
+    'doctrine/event-manager' => 
+    array (
+      'pretty_version' => '1.1.1',
+      'version' => '1.1.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '41370af6a30faa9dc0368c4a6814d596e81aba7f',
     ),
     'doctrine/inflector' => 
     array (
@@ -413,6 +449,15 @@
         0 => 'v8.48.1',
       ),
     ),
+    'kitloong/laravel-migrations-generator' => 
+    array (
+      'pretty_version' => '4.4.2',
+      'version' => '4.4.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '15b36cbf38019bf5d96dd960c7a865fa5f931d48',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -445,7 +490,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '681f149d4d51a00d7dc80fe219b6840fdb1aadd2',
+      'reference' => 'f7f473af42491efffd60e4e5551af8ceb22799f6',
     ),
     'laravel/sail' => 
     array (
@@ -464,6 +509,15 @@
       array (
       ),
       'reference' => '04ad32c1a3328081097a181875733fa51f402083',
+    ),
+    'laravelcollective/html' => 
+    array (
+      'pretty_version' => 'v6.2.1',
+      'version' => '6.2.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ae15b9c4bf918ec3a78f092b8555551dd693fde3',
     ),
     'league/commonmark' => 
     array (

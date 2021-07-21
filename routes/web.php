@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\GeneralController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FilmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +22,15 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/films', [FilmController::class, "index"])
+    ->middleware(['auth'])->name('films');
+
+Route::get('/ajout-film', [FilmController::class, "form"]);
+
+Route::post('/ajout-film', [FilmController::class, "save"])
+    ->middleware(['auth'])->name('ajout-film');
+
+
 
 require __DIR__.'/auth.php';
