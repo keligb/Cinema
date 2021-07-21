@@ -34,6 +34,10 @@
                         <x-nav-link :href="route('mes-seances')" :active="request()->routeIs('mes-seances')">
                             {{ __('Mes séances') }}
                         </x-nav-link>
+
+                        <x-nav-link :href="route('mon-chargement')" :active="request()->routeIs('mon-chargement')">
+                            {{ __('Chargement') }}
+                        </x-nav-link>
                     @endif
 
                    

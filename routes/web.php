@@ -84,6 +84,8 @@ Route::get('/mes-seances', [UserController::class, 'listUserSeances'])->middlewa
 
 Route::get('/delete-ma-seance/{seance_id}', [UserController::class, 'deleteUserSeances'])->middleware(['user'])->name('delete-user-seance');
 
+Route::get('/mon-chargement', [UserController::class, 'getChargementUser'])->middleware(['user'])->name('mon-chargement');
+
 /* ----- ESPACE COMMUN -----*/
 
 // Route::get('/details-film/{film_id}', function () {
