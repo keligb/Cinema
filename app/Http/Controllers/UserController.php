@@ -35,10 +35,10 @@ class UserController extends Controller{
 
     public function getChargementUser(){
 
-        $chargement_list_user = Auth::user();
+        $chargement = Auth::user();
         // dd($chargement_list_user);
         
-        return view('mon-chargement', ['chargement_list_user' => $chargement_list_user]);
+        return view('mon-chargement', ['chargement' => $chargement]);
     }
 
 }

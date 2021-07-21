@@ -25,6 +25,21 @@
     text-decoration: underline;
 }
 
-/* .add-forfait-link{
-    margin-bottom: 30px;
-} */
+.infos-mon-chargement{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cadre-modalite-chargement{
+    border: 1px dotted black;
+    border-radius: 7px;
+    width: 25vw;
+    margin: 0 auto;
+    margin-top: 12vh;
+    padding: 20px;
+}
+
+.modalite-chargement{
+    color: red;
+}
