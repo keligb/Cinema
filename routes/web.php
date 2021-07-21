@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GeneralController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SeanceController;
 use App\Http\Controllers\ChargementController;
@@ -95,6 +96,16 @@ Route::get('/details-film/{film_id}', [AllController::class, 'getFilmInfos'])->n
 Route::post('/reserver', [AllController::class, 'reserverSeance'])->middleware(['auth'])->name('reserver-seance');
 
 Route::get('/offres-chargements', [AllController::class, 'getChargements'])->name('offres-chargements');
+
+Route::get('/films', [FilmController::class, "index"])
+    ->middleware(['auth'])->name('films');
+
+Route::get('/ajout-film', [FilmController::class, "form"]);
+
+Route::post('/ajout-film', [FilmController::class, "save"])
+    ->middleware(['auth'])->name('ajout-film');
+
+
 
 require __DIR__.'/auth.php';
 

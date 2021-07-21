@@ -38,6 +38,10 @@
 
                    
 
+                    <x-nav-link :href="route('ajout-film')" :active="request()->routeIs('ajout-film')">
+                        {{ __('Ajouter un film') }}
+                    </x-nav-link>
+
                 </div>
             </div>
 
