@@ -84,5 +84,7 @@ Route::get('/details-film/{film_id}', [AllController::class, 'getFilmInfos'])->n
 
 Route::post('/reserver', [AllController::class, 'reserverSeance'])->middleware(['auth'])->name('reserver-seance');
 
+Route::get('/offres-chargements', [AllController::class, 'getChargements'])->name('offres-chargements');
+
 require __DIR__.'/auth.php';
 

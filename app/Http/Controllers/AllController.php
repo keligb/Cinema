@@ -38,4 +38,8 @@ class AllController extends Controller{
         // return view('film-seances');
     }
 
+    public function getChargements(){
+        return view ('chargement-user');
+    }
+
 }
