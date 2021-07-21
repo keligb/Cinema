@@ -1,10 +1,10 @@
 .container-chargement {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.card-chargement, .card-chargement-proposé, .card-offre-chargement-propose {
+.card-chargement, .card-chargement-propose {
     width: 100%;
     box-shadow: 2px 2px 5px #474747;
 }
@@ -26,8 +26,8 @@
     width: 50%;
 }
 
-.card-chargement-proposé {
-    height: 50%;
+.nom-chargement-update {
+    width: 20%;
 }
 
 h2 {
@@ -42,6 +42,8 @@ h2 {
 
 .modalite {
     color: #FF5252;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 .button-card-chargement {
@@ -64,8 +66,25 @@ h2 {
     background-color: tomato;
 }
 
-.card-offre-chargement-propose {
-    height: 50%;
-    /* width: 20%; */
+.card-update-chargement {
+    width: 50%;
+    box-shadow: 2px 2px 5px #474747;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.form-chargement-update {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.form-chargement-update input {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.update-chargement-button {
+    margin-top: 10px;
+    margin-left: 30vh;
+}

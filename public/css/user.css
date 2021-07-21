@@ -1,0 +1,47 @@
+h2 {
+    text-align: center;
+}
+
+.card-profil, .card-suppression {
+    width: 50%;
+    box-shadow: 2px 2px 5px #474747;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titre-profil {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.form-utilisateur {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.profil-button {
+    /* float: right; */
+    margin-top: 10px;
+    margin-left: 25vh;
+}
+
+.titre-suppression {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.warning-suppression {
+    color: red;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.delete-user-account {
+    background-color: red;
+    margin-left: 20vh;
+}
+
+.delete-user-account:hover {
+    background-color: #E83E3E;
+}

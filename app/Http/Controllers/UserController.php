@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Seances;
@@ -40,5 +42,40 @@ class UserController extends Controller{
         
         return view('mon-chargement', ['chargement' => $chargement]);
     }
+    
+    public function profilUser(Request $request){
+    
+        $user = Auth::user();
+         
+        return view('profil-user', ['user' => $user]);
+    }
 
+    public function updateUser(Request $request){
+
+        $user_id = $request->user_id;
+        $user = User::find($user_id);
+        $user = Auth::user();
+
+        $user->name = $request->name;
+    
+        $user->password = Hash::make($request->password);
+    
+        $user->save();
+
+        return redirect('/profil');
+    }
+
+    public function deleteUser(Request $request){
+        $user = Auth::user();
+        $reservations = $user->reservations;
+
+        foreach ($reservations as $reservation)
+        {
+            $reservation->delete();
+        }
+
+        $user->delete();
+
+        return redirect('/');
+    }
 }

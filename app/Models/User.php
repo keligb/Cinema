@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\user_has_seances;
 
 class User extends Authenticatable
 {
@@ -45,6 +47,10 @@ class User extends Authenticatable
 
     public function list_chargement(){
         return $this->belongsTo(Chargement::class, 'id_chargement');
+    }
+
+    public function reservations(){
+        return $this->hasMany(user_has_seances::class, 'id_user');
     }
 
 

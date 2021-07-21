@@ -109,5 +109,14 @@ Route::get('/offres-chargements', [AllController::class, 'getChargements'])->nam
 
 Route::post('/paiement-chargement', [AllController::class, 'payerChargement'])->middleware(['auth'])->name('paiement-chargement');
 
+/* ------ GESTION DE PROFIL ----- */
+
+Route::get('/profil', [UserController::class, 'profilUser'])->middleware(['auth'])->name('profil');
+
+Route::post('/profil-update', [UserController::class, 'updateUser'])->middleware(['auth'])->name('profilUpdate');
+
+Route::get('/profil-delete', [UserController::class, 'deleteUser'])->middleware(['user'])->name('profilDelete');
+
+
 require __DIR__.'/auth.php';
 
