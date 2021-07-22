@@ -13,11 +13,16 @@
     </head>
 
     <body class="anthialiased">
+
+        @extends('components.master')
+        @component('components.success')
+        @endcomponent
+        
         <div class="flex-header-offre">
                 <a href="/home"><img  class="accueil" src="storage/img/accueil.png"/></a>
         </div>
 
-        <h1 class="titre-offre-chargement">Offres de chargement</h1>
+        <h1 class="titre-offre-chargement font-style-titre">Offres de chargement</h1>
 
         <div class="container-chargement">
             @foreach ($offre_chargement as $offre)
@@ -30,7 +35,7 @@
                                 <ul>
                                     <li>Prix : {{ $offre->prix }}€ / place</li>
                                 </ul>
-                                <p class="modalite"><em>Modalités : nom remboursable</em></p>
+                                <p class="modalite"><em>Modalités : non remboursable</em></p>
                             </div>
                             {!! Form::open(['route' => 'paiement-chargement']) !!}
                                 {{ csrf_field() }}

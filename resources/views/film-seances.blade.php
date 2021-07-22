@@ -18,7 +18,7 @@
     <body>
         <div class="flex-header-details">
             <a href="/home"><img  class="accueil" src="{{ asset('storage/img/accueil.png') }}"/></a>
-            <h1 class="titre-film">{{ $info_list->titre }}</h1>
+            <h1 class="titre-film font-style-titre">{{ $info_list->titre }}</h1>
         </div>
 
         <div class="container-tab">
@@ -31,45 +31,53 @@
             <div class="resum-tab">
                 <p>{{ $info_list->resum }}</p>
             
+                <!-- @if(!isset($seance_film))
+                    <p>Aucune séance n'a été programmée pour ce film</p>
+                @else -->
 
-                <table  style="width: 100vh; margin-top: 12vh;">
-                    <thead>
-                            <tr>
-                                <th colspan="4">Séances programmées</th>
-                            </tr>
-                    </thead>
-                        <tbody>
-                            <tr class="title-table">
-                                <td>Date</td>
-                                <td>Heure</td>
-                                <td>Salle</td>
-                                <td>Réserver</td>
-                            </tr>
+                    <table  style="width: 100vh; margin-top: 12vh;">
+                        <thead>
+                                <tr>
+                                    <th colspan="4">Séances programmées</th>
+                                </tr>
+                        </thead>
+                            <tbody>
+                                <tr class="title-table">
+                                    <td>Date</td>
+                                    <td>Heure</td>
+                                    <td>Salle</td>
+                                    <td>Réserver</td>
+                                </tr>
 
-                            @foreach($seance_film as $seance)
-                                @if ($info_list->id_film == $seance->id_film)
-                                    <tr>
-                                        <td>{{ $seance->date_seance }}</td>
-                                        <td>{{ $seance->heure_debut }}</td>
-                                        <td>{{ $seance->id_salle }}</td>
-                                        <!-- <td><button type="button" class="btn btn-primary">Réserver</button></td> -->
-                                        <td><a href="#modal{{ $seance->id }}" class="js-modal">Réserver</a></td>
-                                        <!-- <form action="/reserver" method="post"> -->
+                                
+                
 
-                                            {{ csrf_field() }}
+                                @foreach($seance_film as $seance)
+                                    @if ($info_list->id_film == $seance->id_film)
+                                        <tr>
+                                            <td>{{ $seance->date_seance }}</td>
+                                            <td>{{ $seance->heure_debut }}</td>
+                                            <td>{{ $seance->id_salle }}</td>
+                                            <!-- <td><button type="button" class="btn btn-primary">Réserver</button></td> -->
+                                            <td><a href="#modal{{ $seance->id }}" class="js-modal">Réserver</a></td>
+                                            <!-- <form action="/reserver" method="post"> -->
 
-                                            <!-- <input type="hidden" name="id_seance" value="{{ $seance->id }}">
-                                            <input type="hidden" name="id_user" value="{{ Auth::id() }}"> -->
-                                            <!-- <td><input type="submit" value="Réserver" class="button-reserver"></td> -->
-                                        <!-- </form> -->
-                                    </tr>
+                                                {{ csrf_field() }}
 
-                                @endif
+                                                <!-- <input type="hidden" name="id_seance" value="{{ $seance->id }}">
+                                                <input type="hidden" name="id_user" value="{{ Auth::id() }}"> -->
+                                                <!-- <td><input type="submit" value="Réserver" class="button-reserver"></td> -->
+                                            <!-- </form> -->
+                                        </tr>
 
-                            @endforeach
+                                    @endif
 
-                        </tbody>
-                </table>
+                                @endforeach
+                                
+
+                            </tbody>
+                    </table>
+                <!-- @endif -->
             </div>  
         
 
@@ -90,7 +98,7 @@
 
                                             <x-label for="select-tarif">Choisissez un tarif</x-label>
                                             <select name="select-tarif" required>
-                                                <option>-- Choisissez une option --</option>
+                                                <!-- <option>-- Choisissez une option --</option> -->
                                                 @foreach ($forfait_seance as $forfait)
                                                     <option>{{ $forfait->nom }}</option>
                                                 @endforeach

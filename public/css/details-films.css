@@ -1,5 +1,7 @@
 .titre-film{
-    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 8vh;
+    margin-top: 2vh;
 }
 
 .affiche-film-details{

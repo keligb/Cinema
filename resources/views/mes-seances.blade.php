@@ -2,17 +2,16 @@
     <link rel="stylesheet" href="{{ url('/css/seance.css') }}">
     <link rel="stylesheet" href="{{ url('/css/forfait.css') }}">
 
+    @extends('components.master')
+    @component('components.success')
+    @endcomponent
+    
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Mes séances réservées') }}
         </h2>
     </x-slot>
 
-    @if (session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-    @endif 
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 class FilmController extends Controller{
     
     public function getAffiche(){
-        $affiche_film = Films::paginate(8);
+        $affiche_film = Films::paginate(10);
 
         return view('welcome', ['affiche_film' => $affiche_film]);
     }

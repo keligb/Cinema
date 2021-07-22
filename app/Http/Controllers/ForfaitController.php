@@ -23,7 +23,7 @@ class ForfaitController extends Controller{
         $forfaitObj->save();
 
         // return view('form-forfaits');
-        return redirect('/add-forfait')->with('status', 'Seance créee !');
+        return redirect('/add-forfait')->with('status', 'Forfait créé !');
     }
 
     public function displayView(){

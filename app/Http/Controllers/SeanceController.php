@@ -43,7 +43,7 @@ class SeanceController extends Controller{
 
         $seanceObj->save();
 
-        return redirect('/form-seances')->with('status', 'Seance créee !');
+        return redirect('/form-seances')->with('status', 'Séance créee !');
     }
 
     public function deleteSeance(Request $request){
@@ -52,7 +52,7 @@ class SeanceController extends Controller{
         $seance = Seances::find($seance_id);
         $seance->delete();
 
-        return redirect('/display-seances')->with('status', 'Seance supprimée !');
+        return redirect('/display-seances')->with('status', 'Séance supprimée !');
     }
 
     public function updateSeance(Request $request){
@@ -77,7 +77,7 @@ class SeanceController extends Controller{
         $seance->heure_debut = $request->debut;
         $seance->save();
 
-        return redirect('/display-seances')->with('status', 'Seance modifiée !');
+        return redirect('/display-seances')->with('status', 'Séance modifiée !');
         // echo $seance;
     }
 }
