@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Films;
 use App\Models\Salles;
@@ -10,6 +11,9 @@ use App\Models\user_has_seances;
 use App\Models\Forfait;
 use App\Models\Chargement;
 use App\Models\User;
+
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SeanceMail;
 
 class AllController extends Controller{
 
@@ -29,6 +33,7 @@ class AllController extends Controller{
     public function reserverSeance(Request $request){
         $user_id = request('id_user');
         $seance_id = request('id_seance');
+        $mail_user = Auth::user()->email;
         
         $obj = new user_has_seances();
 
@@ -36,7 +41,9 @@ class AllController extends Controller{
         $obj->id_user = $user_id;
         $obj->save();
 
-        return redirect('/')->with('status', 'Séance réservée !');
+        Mail::to($mail_user)->send(new SeanceMail());
+
+        return redirect('/')->with('status', 'Séance réservée ! Un email de confirmation vous a été envoyé !');
         // return view('film-seances');
     }
 
