@@ -19,10 +19,12 @@
 
 .add-forfait-link{
     font-weight: bold;
+    color: black;
 }
 
 .add-forfait-link:hover{
     text-decoration: underline;
+    color: black;
 }
 
 .infos-mon-chargement{

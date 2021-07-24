@@ -48,7 +48,7 @@
                                     <td>{{ $forfait->modalites }}</td>
                                     <td>{{ $forfait->prix }} €</td>
                                     <td><a href="/update-forfait/{{ $forfait->id_forfait }}"><img src="../../../pen-edit.svg" class="pen-edit"></a></td>
-                                    <td><a href="/delete-forfait/{{ $forfait->id_forfait }}">&#128465;</a></td>
+                                    <td><a href="/delete-forfait/{{ $forfait->id_forfait }}" onclick="return confirm('Êtes vous sûr de vouloir supprimer ce forfait ?');">&#128465;</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
