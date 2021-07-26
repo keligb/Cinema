@@ -23,11 +23,4 @@ class Film extends Model
         return $this->belongsTo(Distributeur::class, 'id_distributeur');
     }
 
-    //public function image()
-    //{
-     //   return $this->hasOne(Image::class, 'id_img');
-    //}
-
-
-
 }

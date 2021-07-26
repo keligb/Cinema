@@ -76,4 +76,56 @@ class FilmController extends Controller
         Session::flash('success', "Le film a bien été ajouté !");
         return \Redirect::back();
     }
+
+    public function listFilms() {
+        $film_list = Film::paginate(5);
+        return view('display_films', ['film_list' => $film_list]);
+    }
+
+    public function updateView(Request $request) {
+        $genres = Genre::all();
+
+        $films = Film::all();
+        $id_film = $request->id_film;
+        $film = Film::find($id_film);
+
+        return view('update_films', ['genres' => $genres], ['film_to_update' => $film]);
+    }
+
+    public function updateFilm(Request $request) {
+        $film_list = Film::all();
+        $genres = Genre::all();
+
+        $id_film = $request->id_film;
+        $film = Film::find($id_film);
+
+        $film->titre =  $request->titre;
+        $film->resum = $request->resume;
+        
+        // Ajout distributeur
+        if (Distributeur::where('nom', '=', ($request->director))->exists()) {
+            $id_distibuteur = DB::table('distributeurs')
+                ->select('id_distributeur')
+                ->where('nom', '=', ($request->director))
+                ->value('id_distributeur');
+
+            $film->id_distributeur = $id_distibuteur;
+        } else {
+            $id_distibuteur = DB::table('distributeurs')->insertGetId(
+                ['nom' => $request->director]
+            );
+            $film->id_distributeur = $id_distibuteur;
+        }
+        
+        $film->genre = $request->genre;
+        $film->date_debut_affiche = $request->start_date_display;
+        $film->date_fin_affiche = $request->end_date_display;
+        $film->duree_minutes = $request->duration;
+        $film->anne_production = $request->production_year;
+
+        $film->save();
+
+        Session::flash('success','Le film a bien été mis à jour!');
+        return \Redirect::back();
+    }
 }

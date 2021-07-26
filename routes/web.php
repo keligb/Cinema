@@ -31,6 +31,10 @@ Route::get('/ajout-film', [FilmController::class, "form"]);
 Route::post('/ajout-film', [FilmController::class, "save"])
     ->middleware(['auth'])->name('ajout-film');
 
+Route::get('/display-films', [FilmController::class, 'listFilms'])->middleware(['auth'])->name('display-films');
 
+Route::get('/update/{id_film}', [FilmController::class, 'updateView'])->middleware(['auth'])->name('update_view');
+
+//Route::get('/update/{id_film}', [FilmController::class, 'updateFilm'])->middleware(['auth'])->name('update_film');
 
 require __DIR__.'/auth.php';
