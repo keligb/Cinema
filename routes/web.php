@@ -35,6 +35,8 @@ Route::get('/display-films', [FilmController::class, 'listFilms'])->middleware([
 
 Route::get('/update/{id_film}', [FilmController::class, 'updateView'])->middleware(['auth'])->name('update_view');
 
-//Route::get('/update/{id_film}', [FilmController::class, 'updateFilm'])->middleware(['auth'])->name('update_film');
+Route::post('/update}', [FilmController::class, 'updateFilm'])->middleware(['auth'])->name('update_film');
+
+Route::get('/delete/{id_film}', [FilmController::class, "delete"]) ->middleware('auth')->name('delete');
 
 require __DIR__.'/auth.php';

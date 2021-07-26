@@ -10,15 +10,26 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 @extends('components.master')
                 <div class="container-fluid">
-                    <div class="row justify-content-center">
-                        <form class="m-2" style="width: 40%" method="post" action="" enctype="multipart/form-data">
-                            @csrf
+                {!! Form::open(['route' => 'update_film', 'enctype' => 'multipart/form-data']) !!}
+                    <div style="display: flex; justify-content: space-around; align-items: center; padding: 20px;">
+                        @csrf
+                        <div>
+                            <img src="{{ $film_to_update->url_img }}" style="border-radius: 7px; height: 400px;">
+                            <div class="form-group" style = "margin-top: 20px; width: 59%;">
+                                <input type="text" class="form-control" id="name" placeholder="Entrer le nom de l'image" value ="{{ $nom_img }}" name="name" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Choisir une image</label>
+                                <input id="image" type="file" name="image">
+                            </div>
+                        </div>
+                        <div style = "width: 40%;">
                             <div class="form-group">
                                 <label for="titre">Titre</label>
                                 <input type="text" class="form-control" id="titre" value="{{ $film_to_update->titre }}" name="titre" required="required">
                             </div>
                             <div class="form-group">
-                            <label for="resume">Résumé</label>
+                                <label for="resume">Résumé</label>
                                 <textarea class="form-control" id="resume" name="resume" required="required">{{ $film_to_update->resum }}</textarea>
                             </div>
                             <div class="form-group">
@@ -51,25 +62,24 @@
                                 <input type="number" class="form-control" id="production_year"  value="{{ $film_to_update->annee_production }}" name="production_year" min="1895" max="2022">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="name" placeholder="Entrer le nom de l'image" name="name" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label for="image">Choisir une image</label>
-                                <input id="image" type="file" name="image">
+                                <input type="hidden" class="form-control" value="{{ $film_to_update->id_film }}" name="id_film">
                             </div>
                             <button type="submit" class="btn btn-dark d-block w-75 mx-auto">Modifier le film</button>
-                        </form>
+                        </div>
                     </div>
-    @include('components.errors')
-</div>
-
-<script type="text/javascript" src="{{ URL::asset('js/add_film.js') }}"></script>
-
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>           
+    </div>
+                @include('components.errors')
                 @component('components.success')
-                @component('components.error')
                 @endcomponent
+                @component('components.error')
                 @endcomponent
             </div>
         </div>
     </div>
 </x-app-layout>
+
+<script type="text/javascript" src="{{ URL::asset('js/add_film.js') }}"></script>
