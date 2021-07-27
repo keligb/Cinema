@@ -66,6 +66,25 @@ h2 {
     background-color: tomato;
 }
 
+.btn-edit-suppression a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-edit-chargement a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-edit-suppression a {
+    color: white;
+}
+
+.btn-edit-chargement a {
+    color: white;
+}
+
+
 .card-update-chargement {
     width: 50%;
     box-shadow: 2px 2px 5px #474747;
@@ -92,3 +111,4 @@ h2 {
 .card-offre-chargement-propose{
     margin: 20px;
 }
+

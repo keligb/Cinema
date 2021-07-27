@@ -28,7 +28,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="7">Séances programmées</th>
+                                <th colspan="7" style="text-align: center;">Séances programmées</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +37,6 @@
                                 <td>Salle</td>
                                 <td>Date</td>
                                 <td>Heure de début</td>
-                                <!-- <td>Heure de fin</td> -->
                                 <td>Modifier la séance</td>
                                 <td>Supprimer la séance</td>
                             </tr>
@@ -48,7 +47,6 @@
                                     <td>{{ $seance->salle->numero_salle }}</td>
                                     <td>{{ $seance->date_seance }}</td>
                                     <td>{{ $seance->heure_debut }}</td>
-                                    <!-- <td>00:00:00</td> -->
                                     <td><a href="/update/{{ $seance->id }}"><img src="../../../pen-edit.svg" class="pen-edit"></a></td>
                                     <td><a href="/delete/{{ $seance->id }}" onclick="return confirm('Êtes vous sûr de vouloir supprimer cette séance ?');">&#128465;</a></td>
                                 </tr>

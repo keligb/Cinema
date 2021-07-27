@@ -14,8 +14,6 @@
             <div class="div-formulaire-update-seance bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p class="titre-update-seance">Remplissez le formulaire ci-dessous pour ajouter une séance :</p>
-
-                    <!-- <form action="/form-seances" method="post"> -->
                     {!! Form::open(['route' => 'form-seances']) !!}
                     
                         {{ csrf_field() }}
@@ -52,11 +50,9 @@
                         <div class="update-button-seance">
                             <x-button class="update-button">
                                 {{ __('Enregistrer') }}
-                                <!-- <input type="submit" value="Enregistrer"> -->
                             </x-button>
                         </div>
                     {{ Form::close() }}
-                    <!-- </form> -->
 
                 </div>
             </div>

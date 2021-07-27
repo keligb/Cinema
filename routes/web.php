@@ -19,14 +19,6 @@ use App\Http\Controllers\AllController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('welcome');
-
-// Route::get('/home', function (){
-//     return view('welcome');
-// })->name('home');
-
 Route::get('/', [FilmController::class, 'getAffiche'])->name('welcome');
 
 Route::get('/home', [FilmController::class, 'getAffiche'])->name('home');
@@ -62,6 +54,8 @@ Route::get('/update/{seance_id}', [SeanceController::class, 'updateSeance'])->mi
 
 Route::post('/update', [SeanceController::class, 'storeSeance'])->middleware(['admin'])->name('store');
 
+/* ----- CRUD CHARGEMENTS ADMIN ----- */
+
 Route::get('/chargements', [ChargementController::class, 'display'])->middleware(['admin'])->name('chargements');
 
 Route::post('/add-chargement', [ChargementController::class, 'save'])->middleware(['admin'])->name('addChargement');
@@ -71,9 +65,8 @@ Route::get('/update-chargement/{chargement_id}', [ChargementController::class, '
 Route::post('/save-chargement', [ChargementController::class, 'saveChargement'])->middleware(['admin'])->name('saveChargement');
 
 Route::get('/delete-chargement/{chargement_id}', [ChargementController::class, 'deleteChargement'])->middleware(['admin'])->name('deleteChargement');
-/* ----- CRUD FORFAITS ADMIN ----- */
 
-// Route::get('/add-forfait', [ForfaitController::class, ''])->middleware(['admin'])->name('add-forfait');
+/* ----- CRUD FORFAITS ADMIN ----- */
 
 Route::get('/add-forfait', [ForfaitController::class, 'displayView'])->middleware(['admin'])->name('add-forfait');
 
@@ -97,10 +90,6 @@ Route::get('/mon-chargement', [UserController::class, 'getChargementUser'])->mid
 
 /* ----- ESPACE COMMUN -----*/
 
-// Route::get('/details-film/{film_id}', function () {
-//     return view('film-seances');
-// })->name('film-seance');
-
 Route::get('/details-film/{film_id}', [AllController::class, 'getFilmInfos'])->name('film-seance');
 
 Route::post('/reserver', [AllController::class, 'reserverSeance'])->middleware(['auth'])->name('reserver-seance');
@@ -114,6 +103,8 @@ Route::post('/paiement-chargement', [AllController::class, 'payerChargement'])->
 Route::get('/profil', [UserController::class, 'profilUser'])->middleware(['auth'])->name('profil');
 
 Route::post('/profil-update', [UserController::class, 'updateUser'])->middleware(['auth'])->name('profilUpdate');
+
+Route::post('/profil-mdp-update', [UserController::class, 'updateUserMdp'])->middleware(['auth'])->name('profilUpdateMdp');
 
 Route::get('/profil-delete', [UserController::class, 'deleteUser'])->middleware(['user'])->name('profilDelete');
 

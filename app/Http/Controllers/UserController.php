@@ -11,7 +11,6 @@ use App\Models\Seances;
 use App\Models\Films;
 use App\Models\Salles;
 use App\Models\user_has_seances;
-// use App\Models\Chargement;
 
 class UserController extends Controller{
 
@@ -20,7 +19,6 @@ class UserController extends Controller{
     }
 
     function listUserSeances(){
-        // $seance_list = Seances::paginate(5);
 
         $seance_list = user_has_seances::all();
 
@@ -38,7 +36,6 @@ class UserController extends Controller{
     public function getChargementUser(){
 
         $chargement = Auth::user();
-        // dd($chargement_list_user);
         
         return view('mon-chargement', ['chargement' => $chargement]);
     }
@@ -58,11 +55,21 @@ class UserController extends Controller{
 
         $user->name = $request->name;
     
-        $user->password = Hash::make($request->password);
-    
         $user->save();
 
-        return redirect('/profil');
+        return redirect('/profil')->with('status', 'Vos modifications ont bien été enregistrées !');
+    }
+
+    public function updateUserMdp(Request $request) 
+    {
+        $user_id = $request->user_id;
+        $user = User::find($user_id);
+        $user = Auth::user();
+        
+        $user->password = Hash::make($request->password);
+        $user->save();
+        
+        return redirect('/profil')->with('status', 'Votre mot de passe à bien été modifié !');
     }
 
     public function deleteUser(Request $request){
@@ -76,6 +83,6 @@ class UserController extends Controller{
 
         $user->delete();
 
-        return redirect('/');
+        return redirect('/')->with('status', 'Votre compte à bien été supprimé !');
     }
 }

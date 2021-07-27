@@ -2,8 +2,18 @@ h2 {
     text-align: center;
 }
 
-.card-profil, .card-suppression {
-    width: 50%;
+.container-information {
+    display: flex;
+    justify-content: center;
+}
+    
+.card-profil {
+    width: 30vw;
+    box-shadow: 2px 2px 5px #474747;
+}
+
+.card-suppression {
+    width: 40%;
     box-shadow: 2px 2px 5px #474747;
     margin-left: auto;
     margin-right: auto;
@@ -21,9 +31,8 @@ h2 {
 }
 
 .profil-button {
-    /* float: right; */
     margin-top: 10px;
-    margin-left: 25vh;
+    margin-left: 15vh;
 }
 
 .titre-suppression {
@@ -39,7 +48,7 @@ h2 {
 
 .delete-user-account {
     background-color: red;
-    margin-left: 20vh;
+    margin-left: 15vh;
 }
 
 .delete-user-account:hover {

@@ -44,7 +44,6 @@ class AllController extends Controller{
         Mail::to($mail_user)->send(new SeanceMail());
 
         return redirect('/')->with('status', 'Séance réservée ! Un email de confirmation vous a été envoyé !');
-        // return view('film-seances');
     }
 
     public function getChargements(){

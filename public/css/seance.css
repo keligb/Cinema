@@ -1,13 +1,3 @@
-/* table, td{
-    border: solid black 1px;
-    padding: 30px;
-}
-
-.tab{
-   display: flex;
-   justify-content: center;
-} */
-
 table{
     border-collapse: collapse;
     margin-left: auto;
@@ -18,7 +8,6 @@ table{
 }
 
 th{
-    /* background-color: #336AB2; */
     background-color: #22263C;
     color: #fff;
     text-align: center;
@@ -38,4 +27,11 @@ table tr:hover{
 
 .title-table{
     font-weight: bold;
+}
+
+.reservation-seance{
+    background-color:#22263C;
+    color: white;
+    border-radius: 5px;
+    padding: 6px;
 }

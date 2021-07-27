@@ -12,21 +12,6 @@ class ChargementController extends Controller
         return view('chargements', ['chargements_list' => $chargements_list]);
     }
 
-    // public function addChargement() {
-    //     return view('chargements-add');
-    //     $nom_chargement = request('nom');
-    //     $prix = request('prix');
-
-    //     $chargementObj = new Chargement();
-
-    //     $chargementObj->nom_chargement = $nom_chargement;
-    //     $chargementObj->prix = $prix;
-
-    //     $chargementObj->save();
-
-    //     return redirect('/chargements');
-    // }
-
     public function save(Request $request) 
     {
         $chargement = new Chargement;
@@ -36,10 +21,8 @@ class ChargementController extends Controller
         $chargement->modalite = $request->modalite;
         $chargement->save(); 
 
-        return redirect('/chargements');
+        return redirect('/chargements')->with('status', 'Votre chargement a été ajouté !');
     }
-
-
 
     public function updateChargement(Request $request) 
     {
@@ -59,7 +42,7 @@ class ChargementController extends Controller
         $chargement->modalite = $request->modalite;
         $chargement->save();
 
-        return redirect('/chargements');
+        return redirect('/chargements')->with('status', 'Votre chargement a été modifié !');
     }
 
     public function deleteChargement(Request $request) 
@@ -68,6 +51,6 @@ class ChargementController extends Controller
         $chargement = Chargement::find($chargement_id);
         $chargement->delete();
 
-        return redirect('/chargements')->with('status', 'Chargements deleted !');
+        return redirect('/chargements')->with('status', 'Votre chargement a été supprimé !');
     }
 }

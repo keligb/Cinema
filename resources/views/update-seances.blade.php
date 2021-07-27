@@ -12,7 +12,6 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p class="titre-update-seance">Remplissez le formulaire ci-dessous pour ajouter une séance :</p>
 
-                    <!-- <form action="/update" method="post"> -->
                     {!! Form::open(['route' => 'store']) !!}
 
                     
@@ -52,10 +51,8 @@
                             <x-button class="update-button">
                                 {{ __('Enregistrer') }}
                             </x-button>
-                            <!-- <input type="submit" value="Enregistrer"/> -->
                         </div>
                     {{ Form::close() }}
-                    <!-- </form> -->
                 </div>
             </div>
 

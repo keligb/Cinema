@@ -23,17 +23,10 @@
 
         <div class="container-tab">
 
-            <!-- <img src="{{ $info_list->url_img }}" class="affiche-film-details"> -->
             <img src="{{ asset('storage/img/'.$info_list->url_img) }}" class="affiche-film-details" />
-
-            <!-- <h3>Résumé :</h3> -->
 
             <div class="resum-tab">
                 <p>{{ $info_list->resum }}</p>
-            
-                <!-- @if(!isset($seance_film))
-                    <p>Aucune séance n'a été programmée pour ce film</p>
-                @else -->
 
                     <table  style="width: 100vh; margin-top: 12vh;">
                         <thead>
@@ -58,16 +51,10 @@
                                             <td>{{ $seance->date_seance }}</td>
                                             <td>{{ $seance->heure_debut }}</td>
                                             <td>{{ $seance->id_salle }}</td>
-                                            <!-- <td><button type="button" class="btn btn-primary">Réserver</button></td> -->
-                                            <td><a href="#modal{{ $seance->id }}" class="js-modal">Réserver</a></td>
-                                            <!-- <form action="/reserver" method="post"> -->
+                                            <td><a href="#modal{{ $seance->id }}" class="js-modal reservation-seance">Réserver</a></td>
 
                                                 {{ csrf_field() }}
 
-                                                <!-- <input type="hidden" name="id_seance" value="{{ $seance->id }}">
-                                                <input type="hidden" name="id_user" value="{{ Auth::id() }}"> -->
-                                                <!-- <td><input type="submit" value="Réserver" class="button-reserver"></td> -->
-                                            <!-- </form> -->
                                         </tr>
 
                                     @endif
@@ -77,7 +64,6 @@
 
                             </tbody>
                     </table>
-                <!-- @endif -->
             </div>  
         
 
@@ -88,17 +74,12 @@
                         <div class="modal" id="modal{{ $seance->id }}" aria-hidden="true"  role="dialog" aria-labelledby="modal-title" style="display:none;">
                             <div class="modal-wrapper js-modal-stop">
                                 <div class="modal-content">
-                                    <!-- <div class="modal-header"> -->
                                         <h2 class="modale-title">Plus d'informations</h2>
-                                    <!-- </div> -->
-                                    <!-- <div class="modal-body"> -->
-                                        <!-- <form action="/reserver" method="post"> -->
                                         {!! Form::open(['route' => 'reserver-seance']) !!}
                                             {{ csrf_field() }}
 
                                             <x-label for="select-tarif">Choisissez un tarif</x-label>
                                             <select name="select-tarif" required>
-                                                <!-- <option>-- Choisissez une option --</option> -->
                                                 @foreach ($forfait_seance as $forfait)
                                                     <option>{{ $forfait->nom }}</option>
                                                 @endforeach
@@ -110,9 +91,6 @@
 
                                             <input type="hidden" name="id_seance" value="{{ $seance->id }}">
                                             <input type="hidden" name="id_user" value="{{ Auth::id() }}">
-
-                                            <!-- <button type="button" class="btn-modale btn1 js-modal-close">Fermer</button>
-                                            <button type="submit" class="btn-modale ">Valider</button> -->
                                             
                                             <x-button class="btn-modale btn1 js-modal-close">
                                                 {{ __('Annuler') }}

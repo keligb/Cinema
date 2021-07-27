@@ -21,6 +21,6 @@ class IsUser
         if (Auth::user() && Auth::user()->role == "user") {
             return $next($request);
         }
-        return redirect('/dashboard'); // Mettre la route destiné au dashboard de l'admin
+        return redirect('/dashboard'); 
     }
 }

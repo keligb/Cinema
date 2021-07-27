@@ -69,7 +69,6 @@ class FilmController extends Controller{
                 $extension = $request->image->extension();
                 $request->image->storeAs('/public/img', $validated['name'].".".$extension);
 
-                //$url = "http://localhost/Cinema/storage/app/public/".$validated['name'].".".$extension;
                 $film->url_img = $validated['name'].".".$extension;
             }
         } else {

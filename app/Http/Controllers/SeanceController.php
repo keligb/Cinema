@@ -9,12 +9,6 @@ use App\Models\Seances;
 
 class SeanceController extends Controller{
 
-    // public function infoSeance(Request $request){
-    //     $seance_id = $request->seance_id;
-    //     $seance = Seances::find($seance_id);
-    //     return view('form-seances', ['seance' => $seance]);
-    // }
-
     public function listData(){
         $film_list = Films::all();
         $salle_list = Salles::all();
@@ -43,7 +37,7 @@ class SeanceController extends Controller{
 
         $seanceObj->save();
 
-        return redirect('/form-seances')->with('status', 'Séance créee !');
+        return redirect('/form-seances')->with('status', 'Séance créée !');
     }
 
     public function deleteSeance(Request $request){
@@ -78,6 +72,5 @@ class SeanceController extends Controller{
         $seance->save();
 
         return redirect('/display-seances')->with('status', 'Séance modifiée !');
-        // echo $seance;
     }
 }

@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{{ url('/css/chargement.css') }}">
     </head>
 
-    <body class="anthialiased">
+    <body class="anthialiased bg-gray-100">
 
         @extends('components.master')
         @component('components.success')
@@ -35,7 +35,7 @@
                                 <ul>
                                     <li>Prix : {{ $offre->prix }}€ / place</li>
                                 </ul>
-                                <p class="modalite"><em>Modalités : non remboursable</em></p>
+                                <p class="modalite"><em>{{ $offre->modalite }}</em></p>
                             </div>
                             {!! Form::open(['route' => 'paiement-chargement']) !!}
                                 {{ csrf_field() }}

@@ -14,7 +14,6 @@
     display: flex;
     justify-content: space-around;
     margin: 13px;
-    /* margin-top: 20px; */
 }
 
 .update-button{
@@ -25,14 +24,7 @@
 .form-update-seance{
     display: flex;
     justify-content: column;
-    /* justify-content: space-evenly; */
-    /* margin-left: auto;
-    margin-right: auto; */
-    /* margin: 0 auto; */
-
-    /* justify-content: space-around; */
     margin: 13px;
-    /* margin-top: 20px; */
 }
 
 .form-update-seance select, input{
@@ -43,10 +35,6 @@
     text-align: center;
     margin-bottom: 40px;
 }
-
-/* .form-update-seance label{
-    margin-right: 50px;
-} */
 
 .div-formulaire-update-seance{
     width: 40vw;

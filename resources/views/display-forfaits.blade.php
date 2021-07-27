@@ -29,7 +29,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="5">Forfaits proposés</th>
+                                <th colspan="5" style="text-align: center;">Forfaits proposés</th>
                             </tr>
                         </thead>
 

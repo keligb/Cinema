@@ -15,14 +15,12 @@ class ForfaitController extends Controller{
 
         $forfaitObj = new Forfait();
 
-        // $forfaitObj->forfait_id = Auth::id();
         $forfaitObj->nom = $nom_forfait;
         $forfaitObj->modalites = $modalites_forfait;
         $forfaitObj->prix = $prix_forfait;
 
         $forfaitObj->save();
 
-        // return view('form-forfaits');
         return redirect('/add-forfait')->with('status', 'Forfait créé !');
     }
 
@@ -56,7 +54,6 @@ class ForfaitController extends Controller{
         $forfait->save();
 
         return redirect('/display-forfaits')->with('status', 'Forfait modifié !');
-        // echo $seance;
     }
 
     public function deleteForfait(Request $request){

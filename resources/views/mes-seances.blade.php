@@ -21,7 +21,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th colspan="5">Mes séances</th>
+                                <th colspan="5" style="text-align: center;">Mes séances</th>
                             </tr>
                         <thead>
 
@@ -41,7 +41,6 @@
                                     <td>{{ $seance->list_data->heure_debut }}</td>
                                     <td>{{ $seance->list_data->date_seance }} </td>
                                     <td>{{ $seance->list_data->id_salle }}</td>
-                                    <!-- <td>{{ $seance->id }}</td> -->
                                     <td><a href="/delete-ma-seance/{{ $seance->id }}">&#128465;</a></td>
                                 </tr>
                                 @endif
@@ -55,5 +54,3 @@
         </div>
     </div>
 </x-app-layout>
-
-<!-- if $seance->list_user->id == Auth::id()" (id de l'utilisateur connecté) -->
