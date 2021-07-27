@@ -18,12 +18,23 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                    <p class="infos-mon-chargement">Vous avez acheté le chargement "{{ $chargement->list_chargement->nom_chargement }}"</p>
+                    @if($chargement->id_chargement == null)
+                    
+                        <p>Vous n'avez aucun chargement !</p>
+
+                    @else
+
+                        <p class="infos-mon-chargement">Vous avez acheté le chargement "{{ $chargement->list_chargement->nom_chargement }}"</p>
+                        
+                        <p class="infos-mon-chargement"> Nombre de places pour ce chargement : {{ $chargement->list_chargement->nb_places }}</p>
+                        <div class="cadre-modalite-chargement">
+                            <p class="modalite-chargement">Modalités pour ce chargement : {{ $chargement->list_chargement->modalite }}</p>
+                        </div>
                 
-                    <p class="infos-mon-chargement"> Nombre de places pour ce chargement : {{ $chargement->list_chargement->nb_places }}</p>
-                    <div class="cadre-modalite-chargement">
-                        <p class="modalite-chargement">Modalités pour ce chargement : {{ $chargement->list_chargement->modalite }}</p>
-                    </div>
+                        
+                    @endif
+
+                    
                 </div>
             </div>
         </div>

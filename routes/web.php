@@ -32,13 +32,22 @@ Route::get('/dashboard-user', function () {
 })->middleware(['user'])->name('dashboard-user');
 
 /* ----- CRUD FILMS ADMIN ----- */
+
 Route::get('/films', [FilmController::class, "index"])
-     ->middleware(['admin'])->name('films');
+    ->middleware(['auth'])->name('films');
 
 Route::get('/ajout-film', [FilmController::class, "form"]);
 
 Route::post('/ajout-film', [FilmController::class, "save"])
-     ->middleware(['admin'])->name('ajout-film');
+    ->middleware(['auth'])->name('ajout-film');
+
+Route::get('/display-films', [FilmController::class, 'listFilms'])->middleware(['admin'])->name('display-films');
+
+Route::get('/update-film/{id_film}', [FilmController::class, 'updateView'])->middleware(['admin'])->name('update_view');
+
+Route::post('/update-film}', [FilmController::class, 'updateFilm'])->middleware(['admin'])->name('update_film');
+
+Route::get('/delete-film/{id_film}', [FilmController::class, "delete"]) ->middleware('admin')->name('delete');
 
 /* ----- CRUD SEANCES ADMIN----- */
 

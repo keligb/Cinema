@@ -32,8 +32,8 @@
                         {{ __('Chargements') }}
                         </x-nav-link>
 
-                        <x-nav-link :href="route('ajout-film')" :active="request()->routeIs('ajout-film')">
-                         {{ __('Ajouter un film') }}
+                        <x-nav-link :href="route('display-films')" :active="request()->routeIs('display-films')">
+                         {{ __('Films') }}
                         </x-nav-link>
                     @else
                         <x-nav-link :href="route('mes-seances')" :active="request()->routeIs('mes-seances')">
