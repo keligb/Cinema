@@ -41,7 +41,7 @@
                                     <td>{{ $seance->list_data->heure_debut }}</td>
                                     <td>{{ $seance->list_data->date_seance }} </td>
                                     <td>{{ $seance->list_data->id_salle }}</td>
-                                    <td><a href="/delete-ma-seance/{{ $seance->id }}">&#128465;</a></td>
+                                    <td><a href="/delete-ma-seance/{{ $seance->id }}" onclick="return confirm('Êtes vous sûr de vouloir annuler cette réservation ?');">&#128465;</a></td>
                                 </tr>
                                 @endif
                             @endforeach

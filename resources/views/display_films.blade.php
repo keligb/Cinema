@@ -56,7 +56,7 @@
                                     <td>{{ $film->distributeur->nom }}</td>
                                     <td><img src="{{ asset('storage/img/'.$film->url_img) }}" class="affiche-film" /></td>
                                     <td><a href="/update-film/{{ $film->id_film }}"><img src="../../../pen-edit.svg" class="pen-edit"></a></td>
-                                    <td><a href="/delete-film/{{ $film->id_film }}">&#128465;</a></td>
+                                    <td><a href="/delete-film/{{ $film->id_film }}" onclick="return confirm('Êtes vous sûr de vouloir supprimer ce film ?');">&#128465;</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
