@@ -63,9 +63,8 @@ class FilmController extends Controller
                 ]);
                 $extension = $request->image->extension();
                 $request->image->storeAs('/public/img', $validated['name'].".".$extension);
-                //$url = "http://localhost/Cinema/storage/app/public/".$validated['name'].".".$extension;
-                $url = Storage::url("app/public/img/".$validated['name'].".".$extension);
-                $film->url_img = $url;
+
+                $film->url_img = $validated['name'].".".$extension;
             }
         } else {
             Session::flash('error', "L'image n'a pas pu être téléchargée !");
@@ -113,9 +112,8 @@ class FilmController extends Controller
                 ]);
                 $extension = $request->image->extension();
                 $request->image->storeAs('/public/img', $validated['name'].".".$extension);
-                // $url = "http://localhost/Cinema/storage/app/public/".$validated['name'].".".$extension;
-                $url = Storage::url("app/public/img/".$validated['name'].".".$extension);
-                $film->url_img = $url;
+
+                $film->url_img = $validated['name'].".".$extension;
 
             // Ajout distributeur
             if (Distributeur::where('nom', '=', ($request->director))->exists()) {
@@ -146,7 +144,7 @@ class FilmController extends Controller
             }
             
         } else if ($film->url_img != "") {
-            // ddd($film);
+            
              // Ajout distributeur
             if (Distributeur::where('nom', '=', ($request->director))->exists()) {
                 $id_distibuteur = DB::table('distributeurs')
@@ -186,7 +184,7 @@ class FilmController extends Controller
         $film = Film::find($id_film);
         $film->delete();
 
-        return redirect('display-films')->with('success', 'Le film a bien été supprimé !');
+        return redirect('display-films')->with('status', 'Le film a bien été supprimé !');
         
     }
 }

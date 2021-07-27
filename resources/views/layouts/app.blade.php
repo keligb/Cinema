@@ -26,20 +26,6 @@
                     {{ $header }}
                 </div>
             </header>
-            @if (session('success'))
-            @extends('components.master')
-            <div id="alert" class="notification is-success cs-alert">
-                <button class="delete" onclick="hideAlert()"></button>
-                {{ Session('success') }}
-            </div>
-
-            <script>
-            function hideAlert() {
-                document.getElementById("alert").classList.add("d-none");
-            }
-            </script>
-            @endif
-            
             <!-- Page Content -->
             <main>
                 {{ $slot }}

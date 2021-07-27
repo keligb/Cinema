@@ -14,7 +14,7 @@
                     <div style="display: flex; justify-content: space-around; align-items: center; padding: 20px;">
                         @csrf
                         <div>
-                            <img src="{{ $film_to_update->url_img }}" style="border-radius: 7px; height: 400px;">
+                            <img src="{{ asset('storage/img/'.$film_to_update->url_img) }}" style="border-radius: 7px; height: 400px;">
                             <div class="form-group" style = "margin-top: 20px; width: 59%;">
                                 <input type="text" class="form-control" id="name" placeholder="Entrer le nom de l'image" value ="{{ $nom_img }}" name="name" required="required">
                             </div>
@@ -72,14 +72,10 @@
             </div>
         </div>           
     </div>
-                @include('components.errors')
-                @component('components.success')
-                @endcomponent
-                @component('components.error')
-                @endcomponent
-            </div>
-        </div>
-    </div>
+    @include('components.errors')
+    @component('components.success')
+    @endcomponent
+    @component('components.error')
+    @endcomponent
 </x-app-layout>
 
-<script type="text/javascript" src="{{ URL::asset('js/add_film.js') }}"></script>

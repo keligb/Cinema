@@ -9,6 +9,9 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @extends('components.master')
+            @component('components.success')
+            @endcomponent
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200 tab">
                     <div class="add-forfait">
@@ -51,7 +54,7 @@
                                     <td>{{ $film->annee_production }}</td>
                                     <td>{{ $film->genre->nom }}</td>
                                     <td>{{ $film->distributeur->nom }}</td>
-                                    <td><img src="{{ $film->url_img }}" class="affiche-film" /></td>
+                                    <td><img src="{{ asset('storage/img/'.$film->url_img) }}" class="affiche-film" /></td>
                                     <td><a href="/update/{{ $film->id_film }}"><img src="../../../pen-edit.svg" class="pen-edit"></a></td>
                                     <td><a href="/delete/{{ $film->id_film }}">&#128465;</a></td>
                                 </tr>

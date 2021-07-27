@@ -11,9 +11,10 @@
                 @extends('components.master')
                 @include('components.add_film_form')
                 @component('components.success')
+                @endcomponent
                 @component('components.error')
                 @endcomponent
-                @endcomponent
+                
             </div>
         </div>
     </div>
